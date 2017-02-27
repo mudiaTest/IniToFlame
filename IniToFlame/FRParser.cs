@@ -26,7 +26,14 @@ namespace Ini2Flame
 
         public static String GetFRConfPathName()
         {
-            return (Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\AppData\Local\flamerobin\fr_databases.conf"));
+            string path1 = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\AppData\Local\flamerobin\fr_databases.conf");
+            string path2 = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Ustawienia lokalne\Dane aplikacji\flamerobin\fr_databases.conf");
+            if (File.Exists(path1))
+                return path1;
+            else if (File.Exists(path2))
+                return path2;
+            Debug.Assert(false, "Nie odnaleziono pliku konfiguracyjnego programy FlameRobin.");
+            return "";
         }
 
         //Czy sekcja jest bazą podstawową

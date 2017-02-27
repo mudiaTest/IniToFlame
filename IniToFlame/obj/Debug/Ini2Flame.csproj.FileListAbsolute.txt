@@ -23,3 +23,15 @@ C:\Users\mudia\Documents\Visual Studio 2013\Projects\IniToFlame\WindowsFormsAppl
 C:\Users\mudia\Documents\Visual Studio 2013\Projects\IniToFlame\IniToFlame\bin\Debug\Ini2Flame.exe.config
 C:\Users\mudia\Documents\Visual Studio 2013\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.exe
 C:\Users\mudia\Documents\Visual Studio 2013\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.pdb
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\bin\Debug\Ini2Flame.exe.config
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.exe
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.pdb
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\bin\Debug\Ini2Flame.exe
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\bin\Debug\Ini2Flame.pdb
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.EditDBForm.resources
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.MainForm.resources
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.ChooseForm.resources
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\Ini2Flame.Properties.Resources.resources
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Documents and Settings\Mudia.BIURO\Moje dokumenty\Visual Studio 2010\Projects\IniToFlame\IniToFlame\obj\Debug\GenerateResource-ResGen.write.1.tlog

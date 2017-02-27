@@ -55,7 +55,6 @@ namespace Ini2Flame
                             
                             }                        
                     }                                         
-            tree.ExpandAll();
             InitGrid();
         }
 
@@ -206,7 +205,29 @@ namespace Ini2Flame
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            tree.SelectedNode.Remove();
+            if (tree.SelectedNode != null)
+            {
+                if (dictDatabases.ContainsKey(tree.SelectedNode))
+                {
+                    dictDatabases[tree.SelectedNode].ParentNode.RemoveChild(dictDatabases[tree.SelectedNode]);
+                    tree.SelectedNode.Remove();
+                }
+                else if (dictSerwers.ContainsKey(tree.SelectedNode))
+                {
+                    dictSerwers[tree.SelectedNode].ParentNode.RemoveChild(dictSerwers[tree.SelectedNode]);
+                    tree.SelectedNode.Remove();
+                }
+            }
+        }
+
+        private void btnZwin_Click(object sender, EventArgs e)
+        {
+            tree.CollapseAll();
+        }
+
+        private void btnRozwin_Click(object sender, EventArgs e)
+        {
+            tree.ExpandAll();
         }
     }
 }

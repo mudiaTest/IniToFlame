@@ -35,6 +35,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUsun = new System.Windows.Forms.Button();
+            this.btnZwin = new System.Windows.Forms.Button();
+            this.btnRozwin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,11 +111,33 @@
             this.btnUsun.UseVisualStyleBackColor = true;
             this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
             // 
+            // btnZwin
+            // 
+            this.btnZwin.Location = new System.Drawing.Point(416, 357);
+            this.btnZwin.Name = "btnZwin";
+            this.btnZwin.Size = new System.Drawing.Size(99, 23);
+            this.btnZwin.TabIndex = 7;
+            this.btnZwin.Text = "Zwiń wszystko";
+            this.btnZwin.UseVisualStyleBackColor = true;
+            this.btnZwin.Click += new System.EventHandler(this.btnZwin_Click);
+            // 
+            // btnRozwin
+            // 
+            this.btnRozwin.Location = new System.Drawing.Point(416, 385);
+            this.btnRozwin.Name = "btnRozwin";
+            this.btnRozwin.Size = new System.Drawing.Size(99, 23);
+            this.btnRozwin.TabIndex = 8;
+            this.btnRozwin.Text = "Rozwiń wszystko";
+            this.btnRozwin.UseVisualStyleBackColor = true;
+            this.btnRozwin.Click += new System.EventHandler(this.btnRozwin_Click);
+            // 
             // EditDBForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 414);
+            this.Controls.Add(this.btnRozwin);
+            this.Controls.Add(this.btnZwin);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -137,5 +161,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnUsun;
+        private System.Windows.Forms.Button btnZwin;
+        private System.Windows.Forms.Button btnRozwin;
     }
 }

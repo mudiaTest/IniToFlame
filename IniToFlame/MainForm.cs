@@ -10,6 +10,7 @@ using System.IO;
 using System.Diagnostics;
 using Org.Mentalis.Files;
 using System.Xml;
+using Microsoft.Win32;
 
 namespace Ini2Flame
 {
@@ -67,9 +68,9 @@ namespace Ini2Flame
                 {
                     dbNode = frp.GetDBFromSection(pair.Value.stSection, pair.Value.stFile, frp.NextDBId());
                     if (cbDodGrupe.Checked)
-                        srvNode = frp.ServerNode(dbNode.server + "_" + edtGroupName.Text, dbNode.server);
+                        srvNode = frp.ServerNode(dbNode.server.ToUpper() + "_" + edtGroupName.Text, dbNode.server);
                     else
-                        srvNode = frp.ServerNode(dbNode.server, dbNode.server);
+                        srvNode = frp.ServerNode(dbNode.server.ToUpper(), dbNode.server);
                     //jeśli w node serwera jest już baza danych o daneej path, to nie tworzymy duplikatu
                     if (frp.GetDBNodeByName(dbNode.path, srvNode) == null)
                         frp.AddDBNode(srvNode, dbNode);
@@ -89,6 +90,30 @@ namespace Ini2Flame
             if (f.ShowDialog() == DialogResult.OK)            
                 frp.doc.Save(FRParser.GetFRConfPathName());          
 
+        }
+
+        private void btnShellAdd_Click(object sender, EventArgs e)
+        {
+            string key = @"*\shell\DB Ini";
+            string subKey = key + @"\command";
+            string val = "\"" + System.Reflection.Assembly.GetExecutingAssembly().Location + "\" \"%1\"";
+            //string val = "\"" + System.Reflection.Assembly.GetExecutingAssembly().Location + " \" \"%1\"";
+            RegistryKey rk = Registry.ClassesRoot;
+            if (rk.OpenSubKey(key) != null)
+                rk.DeleteSubKeyTree(key);
+            rk.CreateSubKey(key);
+            rk.CreateSubKey(subKey);
+            RegistryKey myKey = rk.OpenSubKey(subKey, true);
+            myKey.SetValue("", val, RegistryValueKind.String);
+            rk.Close();
+        }
+
+        private void btnShellDel_Click(object sender, EventArgs e)
+        {
+            string key = @"*\shell\DB Ini";
+            RegistryKey rk = Registry.ClassesRoot;
+            if (rk.OpenSubKey(key) != null)
+                rk.DeleteSubKeyTree(key);
         }
     }
 }

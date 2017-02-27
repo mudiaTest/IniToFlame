@@ -36,7 +36,11 @@
             this.cbDodGrupe = new System.Windows.Forms.CheckBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.gbShell = new System.Windows.Forms.GroupBox();
+            this.btnShellAdd = new System.Windows.Forms.Button();
+            this.btnShellDel = new System.Windows.Forms.Button();
             this.gbOpen.SuspendLayout();
+            this.gbShell.SuspendLayout();
             this.SuspendLayout();
             // 
             // edtOpen
@@ -103,7 +107,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(13, 130);
+            this.btnEdit.Location = new System.Drawing.Point(12, 140);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(139, 23);
             this.btnEdit.TabIndex = 6;
@@ -111,17 +115,50 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // gbShell
+            // 
+            this.gbShell.Controls.Add(this.btnShellDel);
+            this.gbShell.Controls.Add(this.btnShellAdd);
+            this.gbShell.Location = new System.Drawing.Point(192, 121);
+            this.gbShell.Name = "gbShell";
+            this.gbShell.Size = new System.Drawing.Size(196, 53);
+            this.gbShell.TabIndex = 7;
+            this.gbShell.TabStop = false;
+            this.gbShell.Text = "Shell";
+            // 
+            // btnShellAdd
+            // 
+            this.btnShellAdd.Location = new System.Drawing.Point(20, 19);
+            this.btnShellAdd.Name = "btnShellAdd";
+            this.btnShellAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnShellAdd.TabIndex = 0;
+            this.btnShellAdd.Text = "Dodaj";
+            this.btnShellAdd.UseVisualStyleBackColor = true;
+            this.btnShellAdd.Click += new System.EventHandler(this.btnShellAdd_Click);
+            // 
+            // btnShellDel
+            // 
+            this.btnShellDel.Location = new System.Drawing.Point(101, 19);
+            this.btnShellDel.Name = "btnShellDel";
+            this.btnShellDel.Size = new System.Drawing.Size(75, 23);
+            this.btnShellDel.TabIndex = 1;
+            this.btnShellDel.Text = "Usun";
+            this.btnShellDel.UseVisualStyleBackColor = true;
+            this.btnShellDel.Click += new System.EventHandler(this.btnShellDel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 319);
+            this.Controls.Add(this.gbShell);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.gbOpen);
             this.Name = "MainForm";
             this.Text = "DBIni";
             this.gbOpen.ResumeLayout(false);
             this.gbOpen.PerformLayout();
+            this.gbShell.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -136,6 +173,9 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.TextBox edtGroupName;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.GroupBox gbShell;
+        private System.Windows.Forms.Button btnShellDel;
+        private System.Windows.Forms.Button btnShellAdd;
     }
 }
 

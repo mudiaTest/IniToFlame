@@ -20,6 +20,11 @@ namespace Ini2Flame
         Dictionary<TreeNode, XmlNode> dictSerwers = new Dictionary<TreeNode, XmlNode>();
         Dictionary<TreeNode, XmlNode> dictDatabases = new Dictionary<TreeNode, XmlNode>();
 
+        // Retrieve the client coordinates of the drop location.
+        Point targetPoint;
+        // Retrieve the node at the drop location.
+        TreeNode targetNode;
+
         public EditDBForm(FRParser afrp)
         {
             InitializeComponent();
@@ -81,13 +86,12 @@ namespace Ini2Flame
 
         private void tree_ItemDrag(object sender, ItemDragEventArgs e)
         {
-            DoDragDrop(e.Item, DragDropEffects.Move);
+            tree.DoDragDrop(e.Item, DragDropEffects.Move);
         }
 
         private void tree_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
-
             ileDragEnter++;
             DragInfo(e);
         }
@@ -146,19 +150,15 @@ namespace Ini2Flame
         private bool InsertAsSubNode(TreeNode atargetNode, Point atreeViewPoint)
         {
             bool result = 12 + (atargetNode.Level) * (19 + 10 + 10) < atreeViewPoint.X;
-            if (result)
-                Cursor.Current = Cursors.PanEast;
-            else
-                Cursor.Current = Cursors.PanSouth;
             return result;
         }
 
         private void DragInfo(DragEventArgs e)
         {
             // Retrieve the client coordinates of the drop location.
-            Point targetPoint = tree.PointToClient(new Point(e.X, e.Y));
+            targetPoint = tree.PointToClient(new Point(e.X, e.Y));
             // Retrieve the node at the drop location.
-            TreeNode targetNode = tree.GetNodeAt(targetPoint);
+            targetNode = tree.GetNodeAt(targetPoint);
             // Retrieve the node that was dragged.
             TreeNode draggedNode = (TreeNode)e.Data.GetData(typeof(TreeNode));
 
@@ -228,6 +228,24 @@ namespace Ini2Flame
         private void btnRozwin_Click(object sender, EventArgs e)
         {
             tree.ExpandAll();
+        }
+
+        private void tree_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+            e.UseDefaultCursors = false;
+            bool result = 12 + (targetNode.Level) * (19 + 10 + 10) < targetPoint.X;
+            if (result)
+                Cursor.Current = Cursors.PanEast;
+            else
+                Cursor.Current = Cursors.PanSouth;
+        }
+
+        private void panel1_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+        }
+
+        private void panel2_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
         }
     }
 }

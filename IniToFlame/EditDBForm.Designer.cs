@@ -60,6 +60,7 @@
             this.tree.DragDrop += new System.Windows.Forms.DragEventHandler(this.tree_DragDrop);
             this.tree.DragEnter += new System.Windows.Forms.DragEventHandler(this.tree_DragEnter);
             this.tree.DragOver += new System.Windows.Forms.DragEventHandler(this.tree_DragOver);
+            this.tree.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.tree_GiveFeedback);
             // 
             // btnOk
             // 
@@ -91,6 +92,7 @@
             this.panel1.TabIndex = 4;
             this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
+            this.panel1.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.panel1_GiveFeedback);
             // 
             // panel2
             // 
@@ -100,6 +102,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(149, 37);
             this.panel2.TabIndex = 5;
+            this.panel2.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.panel2_GiveFeedback);
             // 
             // btnUsun
             // 
@@ -135,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 414);
+            this.ClientSize = new System.Drawing.Size(664, 564);
             this.Controls.Add(this.btnRozwin);
             this.Controls.Add(this.btnZwin);
             this.Controls.Add(this.btnUsun);

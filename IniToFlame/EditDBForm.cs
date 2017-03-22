@@ -25,11 +25,52 @@ namespace Ini2Flame
         // Retrieve the node at the drop location.
         TreeNode targetNode;
 
+        // Menu kontekstowe dla node bazy
+        ContextMenu dbContextMenu = new ContextMenu();
+
+        TreeNode clickedNode;
+        EventHandler renameEvent;
+
         public EditDBForm(FRParser afrp)
         {
             InitializeComponent();
             frp = afrp;
             Init();
+            FillDbContextMenu();
+        }
+
+        void RenameDB(object sender, EventArgs args)
+        {
+            XmlNode xnode = null;
+            if (clickedNode.Level==0) {                
+                xnode = dictSerwers[clickedNode];
+            }
+            else if (clickedNode.Level == 1)
+            {
+                xnode = dictDatabases[clickedNode];
+            }
+
+            foreach (XmlNode child in xnode.ChildNodes)
+            {
+                if (child.Name == "name")
+                {
+                    SetStringForm form = new SetStringForm(child.InnerText);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        child.InnerText = form.text;
+                        clickedNode.Text = child.InnerText;
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void FillDbContextMenu()
+        {
+            MenuItem item;
+            renameEvent = new EventHandler(RenameDB);
+            item = new MenuItem("Zmień nazwę", renameEvent);
+            dbContextMenu.MenuItems.Add(item);
         }
 
         private void Init()
@@ -118,8 +159,16 @@ namespace Ini2Flame
                 {
                     if (dictSerwers.Keys.Contains(targetNode) && dictDatabases.Keys.Contains(draggedNode))
                     {
-                        draggedNode.Remove();
-                        targetNode.Nodes.Add(draggedNode);
+                        if (draggedNode.Parent != targetNode) //jeśli przedówany do innego serwera, to wstawimy na koniec
+                        {
+                            draggedNode.Remove();
+                            targetNode.Nodes.Add(draggedNode);
+                        }
+                        else
+                        {
+                            draggedNode.Remove();
+                            targetNode.Nodes.Insert(0, draggedNode);
+                        }
                         dictDatabases[draggedNode].ParentNode.RemoveChild(dictDatabases[draggedNode]);
                         dictSerwers[targetNode].AppendChild(dictDatabases[draggedNode]);
                     }
@@ -232,12 +281,15 @@ namespace Ini2Flame
 
         private void tree_GiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
-            e.UseDefaultCursors = false;
-            bool result = 12 + (targetNode.Level) * (19 + 10 + 10) < targetPoint.X;
-            if (result)
-                Cursor.Current = Cursors.PanEast;
-            else
-                Cursor.Current = Cursors.PanSouth;
+            if (targetNode != null)
+            {
+                e.UseDefaultCursors = false;
+                bool result = 12 + (targetNode.Level) * (19 + 10 + 10) < targetPoint.X;
+                if (result)
+                    Cursor.Current = Cursors.PanEast;
+                else
+                    Cursor.Current = Cursors.PanSouth;
+            }
         }
 
         private void panel1_GiveFeedback(object sender, GiveFeedbackEventArgs e)
@@ -246,6 +298,19 @@ namespace Ini2Flame
 
         private void panel2_GiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
+        }
+
+        private void tree_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button.Equals(MouseButtons.Right))
+            {
+                TreeNode node = tree.GetNodeAt(e.X, e.Y);
+                //if (node.Level == 1)
+                {
+                    clickedNode = tree.GetNodeAt(e.X, e.Y);
+                    dbContextMenu.Show(this, new Point(e.X, e.Y));
+                }
+            }
         }
     }
 }

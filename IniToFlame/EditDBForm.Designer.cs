@@ -44,7 +44,7 @@
             // 
             this.grid.AllowDrop = true;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(12, 446);
+            this.grid.Location = new System.Drawing.Point(603, 95);
             this.grid.Name = "grid";
             this.grid.Size = new System.Drawing.Size(541, 208);
             this.grid.TabIndex = 0;
@@ -52,20 +52,24 @@
             // tree
             // 
             this.tree.AllowDrop = true;
+            this.tree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tree.Location = new System.Drawing.Point(12, 12);
             this.tree.Name = "tree";
-            this.tree.Size = new System.Drawing.Size(541, 339);
+            this.tree.Size = new System.Drawing.Size(541, 480);
             this.tree.TabIndex = 1;
             this.tree.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.tree_ItemDrag);
             this.tree.DragDrop += new System.Windows.Forms.DragEventHandler(this.tree_DragDrop);
             this.tree.DragEnter += new System.Windows.Forms.DragEventHandler(this.tree_DragEnter);
             this.tree.DragOver += new System.Windows.Forms.DragEventHandler(this.tree_DragOver);
             this.tree.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.tree_GiveFeedback);
+            this.tree.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tree_MouseClick);
             // 
             // btnOk
             // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(177, 385);
+            this.btnOk.Location = new System.Drawing.Point(177, 526);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 2;
@@ -74,8 +78,9 @@
             // 
             // btnAnuluj
             // 
+            this.btnAnuluj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAnuluj.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnuluj.Location = new System.Drawing.Point(268, 385);
+            this.btnAnuluj.Location = new System.Drawing.Point(268, 526);
             this.btnAnuluj.Name = "btnAnuluj";
             this.btnAnuluj.Size = new System.Drawing.Size(75, 23);
             this.btnAnuluj.TabIndex = 3;
@@ -86,7 +91,7 @@
             // 
             this.panel1.AllowDrop = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Location = new System.Drawing.Point(32, 417);
+            this.panel1.Location = new System.Drawing.Point(603, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(149, 37);
             this.panel1.TabIndex = 4;
@@ -98,7 +103,7 @@
             // 
             this.panel2.AllowDrop = true;
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel2.Location = new System.Drawing.Point(212, 417);
+            this.panel2.Location = new System.Drawing.Point(774, 29);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(149, 37);
             this.panel2.TabIndex = 5;
@@ -106,7 +111,8 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(223, 357);
+            this.btnUsun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUsun.Location = new System.Drawing.Point(223, 498);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(75, 23);
             this.btnUsun.TabIndex = 6;
@@ -116,7 +122,8 @@
             // 
             // btnZwin
             // 
-            this.btnZwin.Location = new System.Drawing.Point(416, 357);
+            this.btnZwin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnZwin.Location = new System.Drawing.Point(416, 498);
             this.btnZwin.Name = "btnZwin";
             this.btnZwin.Size = new System.Drawing.Size(99, 23);
             this.btnZwin.TabIndex = 7;
@@ -126,7 +133,8 @@
             // 
             // btnRozwin
             // 
-            this.btnRozwin.Location = new System.Drawing.Point(416, 385);
+            this.btnRozwin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRozwin.Location = new System.Drawing.Point(416, 526);
             this.btnRozwin.Name = "btnRozwin";
             this.btnRozwin.Size = new System.Drawing.Size(99, 23);
             this.btnRozwin.TabIndex = 8;
@@ -138,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 564);
+            this.ClientSize = new System.Drawing.Size(572, 559);
             this.Controls.Add(this.btnRozwin);
             this.Controls.Add(this.btnZwin);
             this.Controls.Add(this.btnUsun);
